@@ -1,8 +1,8 @@
-# Code for "Improving UAV-based Maritime Rescue Detection with Dataset Re-balancing under Sample Constraints" (Under Peer Review)
+# Code for "Improving Drone-captured Maritime Rescue Image Object Detection with Dataset Re-balancing under Sample Constraints" (Under Peer Review)
 
 ## Overview
 
-This repository contains the code supporting the result in the paper *"Improving UAV-based Maritime Rescue Detection with Dataset Re-balancing under Sample Constraints"*, which is currently under peer review. The study addresses the issue of sample imbalance and scarcity in the SeaDronesSee dataset, and proposes a greedy algorithm-based method for re-partitioning the dataset to improve model training and generalization.
+This repository contains the code supporting the result in the paper *"Improving Drone-captured Maritime Rescue Image Object Detection with Dataset Re-balancing under Sample Constraints"*, which is currently under peer review. The study addresses the issue of sample imbalance and scarcity in the SeaDronesSee dataset, and proposes a greedy algorithm-based method for re-partitioning the dataset to improve model training and generalization.
 
 ## SeaDronesSee Dataset
 
