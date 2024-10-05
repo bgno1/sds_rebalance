@@ -47,6 +47,18 @@ After running the script, you will find the rebalanced annotation files in the s
 
 
 
+
+
+###### About Model Validation
+
+- The Faster R-CNN and Cascade R-CNN models, integrated with a ResNeXt-101 backbone and FPN, can be implemented and validated using the [MMDetection framework](https://github.com/open-mmlab/mmdetection). This framework provides the flexibility and tools needed to test these models, supporting the experiments presented in our paper.
+
+- Experimental results for YOLOv8s can be validated using the official [Ultralytics YOLOv8 (v8.2)](https://github.com/ultralytics/ultralytics) repository, which offers state-of-the-art performance for real-time object detection and plays a key role in validating our findings.
+
+- Both models are trained using the original and re-partitioned training and validation annotations. Validation results, evaluated on the [SeaDronesSee Leaderboard](https://macvi.org/leaderboard/airborne/seadronessee/object-detection), demonstrate noticeable performance improvements.
+
+
+
 ## References
 
 [1] Varga, Leon Amadeus, et al. "SeaDronesSee: A Maritime Benchmark for Detecting Humans in Open Water." *Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision*, 2022. 
