@@ -1,4 +1,4 @@
-# Code for "Improving Drone-captured Maritime Rescue Image Object Detection with Dataset Re-balancing under Sample Constraints" (Under Peer Review)
+# Improving Drone-captured Maritime Rescue Image Object Detection with Dataset Re-balancing under Sample Constraints
 
 ## Overview
 
