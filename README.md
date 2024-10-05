@@ -47,9 +47,7 @@ After running the script, you will find the rebalanced annotation files in the s
 
 
 
-
-
-###### About Model Validation
+### About Model Validation
 
 - The Faster R-CNN and Cascade R-CNN models, integrated with a ResNeXt-101 backbone and FPN, can be implemented and validated using the [MMDetection framework](https://github.com/open-mmlab/mmdetection). This framework provides the flexibility and tools needed to test these models, supporting the experiments presented in our paper.
 
