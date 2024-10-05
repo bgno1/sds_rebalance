@@ -53,7 +53,7 @@ After running the script, you will find the rebalanced annotation files in the s
 
 - Experimental results for YOLOv8s can be validated using the official [Ultralytics YOLOv8 (v8.2)](https://github.com/ultralytics/ultralytics) repository, which offers state-of-the-art performance for real-time object detection and plays a key role in validating our findings.
 
-- Both models are trained using the original and re-partitioned training and validation annotations. Validation results, evaluated on the [SeaDronesSee Leaderboard](https://macvi.org/leaderboard/airborne/seadronessee/object-detection), demonstrate noticeable performance improvements.
+- All models are trained using the original and re-partitioned training and validation annotations. Validation results, evaluated on the [SeaDronesSee Leaderboard](https://macvi.org/leaderboard/airborne/seadronessee/object-detection), demonstrate noticeable performance improvements.
 
 
 
