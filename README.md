@@ -2,7 +2,15 @@
 
 ## Overview
 
-This repository contains the code supporting the result in the paper *"Improving Drone-captured Maritime Rescue Image Object Detection with Dataset Re-balancing under Sample Constraints"*, which is currently under peer review. The study addresses the issue of sample imbalance and scarcity in the SeaDronesSee dataset, and proposes a greedy algorithm-based method for re-partitioning the dataset to improve model training and generalization.
+
+
+
+
+This repository contains the code supporting the findings in the paper *"Improving Drone-captured Maritime Rescue Image Object Detection with Dataset Re-balancing under Sample Constraints,"* which is currently under peer review. The SeaDronesSee dataset, a highly valuable and unique resource for drone-based maritime search and rescue research, provides critical data for advancing object detection models in this field. However, due to the challenging nature of collecting data in such specialized and difficult environments, the dataset inherently faces sample constraints and imbalances in the distribution of certain categories.
+
+Our work seeks to address these limitations by proposing a greedy algorithm-based method for re-partitioning the dataset. This approach aims to enhance the generalization and training efficiency of detection models while making the most of the invaluable data contained within the SeaDronesSee dataset. Ultimately, our goal is to maximize the impact of this precious resource, ensuring it can be fully leveraged to improve drone-based maritime rescue operations.
+
+
 
 ## SeaDronesSee Dataset
 
