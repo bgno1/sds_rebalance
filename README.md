@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/864396002.svg)](https://doi.org/10.5281/zenodo.13894509)
+
 # Optimizing Drone-Captured Maritime Rescue Image Object Detection through Dataset Rebalancing under Sample Constraints
 
 ## Overview
