@@ -2,18 +2,18 @@
 
 # Optimizing Drone-Captured Maritime Rescue Image Object Detection through Dataset Rebalancing under Sample Constraints
 
-## Overview
+## 1. Overview
 
 This repository contains the code supporting the findings in the paper *"Optimizing Drone-Captured Maritime Rescue Image Object Detection through Dataset Rebalancing under Sample Constraints,"* which is currently under peer review. The SeaDronesSee dataset [1], a highly valuable and unique resource for drone-based maritime search and rescue research, provides critical data for advancing object detection models in this field. However, due to the challenging nature of collecting data in such specialized and difficult environments, the dataset inherently faces sample constraints and imbalances in the distribution of certain categories.
 
 Our work seeks to address these limitations by proposing a greedy algorithm-based method for re-partitioning the dataset. This approach aims to enhance the generalization and training efficiency of detection models while making the most of the invaluable data contained within the SeaDronesSee dataset. Ultimately, our goal is to maximize the impact of this precious resource, ensuring it can be fully leveraged to improve drone-based maritime rescue operations.
 
-## SeaDronesSee Dataset
+## 2. SeaDronesSee Dataset
 
 The SeaDronesSee dataset is available on the official GitHub repository: [SeaDronesSee GitHub](https://github.com/Ben93kie/SeaDronesSee).  
 The `instances_train.json` and `instances_val.json` files used in this code can be found in the official SeaDronesSee dataset, which is downloadable from the following link: [Download SeaDronesSee Dataset](https://cloud.cs.uni-tuebingen.de/index.php/s/aJQPHLGnke68M52).
 
-## Dataset re-partitioning based on the greedy algorithm
+## 3. Dataset re-partitioning based on the greedy algorithm
 
 The code has been tested using **Python 3.8**.
 
@@ -39,9 +39,35 @@ After running the script, you will find the rebalanced annotation files in the s
 - `./instances_train_balanced.json` – Rebalanced training set annotations.
 - `./instances_val_balanced.json` – Rebalanced validation set annotations.
 
-## Model Validation
+## 4. Model Validation
 
-### Faster R-CNN and Cascade R-CNN
+### 4.1 Dataset Preparation
+
+- Download the SeaDronesSee dataset from [this link](https://cloud.cs.uni-tuebingen.de/index.php/s/aJQPHLGnke68M52) and copy the contents of the `images` folder into the `./dataset/SeaDronesSee` directory of this repository.
+
+- Create a `dataset/SeaDronesSee/images/train_val` directory and move all the images from the `train` and `val` folders into this newly created folder.
+
+The directory structure should look like this:
+
+```md
+- /dataset
+    - /SeaDronesSee
+        - /annotations    # Annotation files in JSON format
+        - /images         # Image data
+            - /test
+            - /train
+            - /val
+            - /train_val  # Contains all images from both train and val folders
+        - /labels         # (for YOLOv8) Annotations for images
+        - test.txt        # (for YOLOv8) List of test images
+        - train.txt       # (for YOLOv8) List of training images
+        - val.txt         # (for YOLOv8) List of validation images
+
+```
+
+
+
+### 4.2 Faster R-CNN and Cascade R-CNN
 
 After downloading the MMDetection framework from the [official MMDetection GitHub repository](https://github.com/open-mmlab/mmdetection), the following directory structure will be available:
 
