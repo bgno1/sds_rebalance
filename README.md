@@ -49,26 +49,26 @@ After running the script, you will find the rebalanced annotation files in the s
 
 After downloading the MMDetection framework from the official MMDetection GitHub repository, the following directory structure will be available:
 
-/mmdetection
+\- mmdetection
 
-    /tools
+        \- \tools
 
-    /configs
+        \- \configs
 
-    ...
+        ...
 
-    frx.py
+        frx.py
 
-    frx_bl.py
+        frx_bl.py
 
-    cas.py
+        cas.py
 
-    cas_bl.py
+        cas_bl.py
 
 Among these files, `frx.py`, `frx_bl.py`, `cas.py`, and `cas_bl.py` are the custom model training scripts provided to support the experiments in the paper. Specifically:
 
-- `frx.py` and `frx_bl.py` are used to train the Faster R-CNN model with an FPN backbone of ResNeXt-101 on the original and rebalanced datasets, respectively.
-- `cas.py` and `cas_bl.py` are used to train the Cascade R-CNN model with an FPN backbone of ResNeXt-101 on the original and rebalanced datasets, respectively.
+- `frx.py` and `frx_bl.py` are used to train the Faster R-CNN models on the original and rebalanced datasets, respectively.
+- `cas.py` and `cas_bl.py` are used to train the Cascade R-CNN models  on the original and rebalanced datasets, respectively.
 
 **Example usage:**
 
@@ -78,9 +78,7 @@ To train the Faster R-CNN model using `frx.py`, navigate to the `mmdetection` di
 python ./tools/train.py ./frx.py
 ```
 
-- 
 
-- 
 
 - The Faster R-CNN and Cascade R-CNN models, integrated with a ResNeXt-101 backbone and FPN, can be implemented and validated using the [MMDetection framework](https://github.com/open-mmlab/mmdetection). This framework provides the flexibility and tools needed to test these models, supporting the experiments presented in our paper.
 
