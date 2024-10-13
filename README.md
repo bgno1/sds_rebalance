@@ -50,15 +50,15 @@ After running the script, you will find the rebalanced annotation files in the s
 The directory structure should look like this:
 
 ```md
-- /dataset
-    - /SeaDronesSee
-        - /annotations    # Annotation files in JSON format
-        - /images         # Image data
-            - /test
-            - /train
-            - /val
-            - /train_val  # Contains all images from both train and val folders
-        - /labels         # (for YOLOv8) Annotations for images
+- dataset/
+    - SeaDronesSee/
+        - annotations/    # Annotation files in JSON format
+        - images/         # Image data
+            - test/
+            - train/
+            - val/
+            - train_val/  # Contains all images from both train and val folders
+        - labels/         # (for YOLOv8) Annotations for images
         - test.txt        # (for YOLOv8) List of test images
         - train.txt       # (for YOLOv8) List of training images
         - val.txt         # (for YOLOv8) List of validation images
@@ -71,25 +71,25 @@ The directory structure should look like this:
 The final directory structure of the dataset should look as follows:
 
 ```md
-- /dataset
-    - /SeaDronesSee           # Original SeaDronesSee dataset
-        - /annotations        # Annotation files in JSON format
-        - /images             # Image data
-            - /test
-            - /train
-            - /val
-            - /train_val      # Contains all images from both train and val folders
-        - /labels             # (for YOLOv8) Annotations for images
+- dataset/
+    - SeaDronesSee/           # Original SeaDronesSee dataset
+        - annotations/        # Annotation files in JSON format
+        - images/             # Image data
+            - test/
+            - train/
+            - val/
+            - train_val/      # Contains all images from both train and val folders
+        - labels/             # (for YOLOv8) Annotations for images
         - test.txt            # (for YOLOv8) List of test images
         - train.txt           # (for YOLOv8) List of training images
         - val.txt             # (for YOLOv8) List of validation images
-    - /SeaDronesSee_balanced  # Rebalanced version of the SeaDronesSee dataset
-        - /annotations        # Annotation files in JSON format
-        - /images             # Image data
-            - /test
-            - /train          # rebalanced后的训练集文件
-            - /val            # rebalanced后的验证集文件
-        - /labels             # (for YOLOv8) Annotations for images
+    - SeaDronesSee_balanced/  # Rebalanced version of the SeaDronesSee dataset
+        - annotations/        # Annotation files in JSON format
+        - images/             # Image data
+            - test/
+            - train/          # rebalanced后的训练集文件
+            - val/            # rebalanced后的验证集文件
+        - labels/             # (for YOLOv8) Annotations for images
         - test.txt            # (for YOLOv8) List of test images
         - train.txt           # (for YOLOv8) List of training images
         - val.txt             # (for YOLOv8) List of validation images
@@ -107,8 +107,8 @@ The relevant directory structure will look as follows:
 
 ```md
 - mmdetection
-    - /tools
-    - /configs
+    - tools/
+    - configs/
     ...
     frx.py
     frx_bl.py
@@ -149,18 +149,20 @@ python ./tools/test.py ./frx.py ./work_dirs/frx/epoch_12.pth --out ./test.pkl
 
 
 
-### YOLOv8
+### 4.3 YOLOv8
+
+#### 4.3.1 Training
 
 Download the YOLOv8 project from the [official Ultralytics GitHub repository](https://github.com/ultralytics/ultralytics), the following directory structure will be available:
 
 ```md
 - ultralytics
-    - /docs
-    ...
-    - /ultralytics
-        - /cfg
-        - /data
-        ...
+    - docs/
+    ...
+    - ultralytics/
+        - cfg/
+        - data/
+        ...
 ```
 
 Using the Ultralytics official documentation as a reference, you can create a Python training script in the `ultralytics` directory with the following structure:
@@ -181,6 +183,17 @@ Key details:
 - The `yolo_sds.yaml` file represents the improved YOLOv8 model used in our experiments and can be found in the `validation/yolov8` directory of this repository.
 
 - The `sds_balanced.yaml` is the dataset used for training and can either be `sds.yaml` (original split) or `sds_balanced.yaml` (rebalanced split). Both YAML files are available in the `dataset/yolov8` directory of this repository.
+
+#### 4.3.2 Test on SeaDronesSee Leaderboard
+
+Using the structure outlined in the Ultralytics official documentation,  write the following code:
+
+```
+model = YOLO(r'./best.pt')  # Trained model weights
+metrics = model.val(split='test', save_json=True)
+```
+
+Once executed, use the information from the output log to locate the `predictions.json` file, and upload it to the [SeaDronesSee Leaderboard server](https://macvi.org/leaderboard/airborne/seadronessee/object-detection) to evaluate the model's generalization performance.
 
 ## References
 
