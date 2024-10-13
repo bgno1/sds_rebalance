@@ -1,0 +1,14 @@
+path: ../datasets/SeaDronesSee # dataset root dir
+train: train.txt # train images (relative to 'path')
+val: val.txt # val images (relative to 'path')
+test: test.txt
+
+# Classes
+names:
+  0: ignored
+  1: swimmer
+  2: floater
+  3: boat
+  4: swimmer on boat
+  5: floater on boat
+  6: life jacket

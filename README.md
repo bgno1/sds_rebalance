@@ -147,8 +147,6 @@ python ./tools/test.py ./frx.py ./work_dirs/frx/epoch_12.pth --out ./test.pkl
 
 - Validate the model’s generalization performance by submitting the JSON file to the SeaDronesSee Leaderboard server at [SeaDronesSee Leaderboard](https://macvi.org/leaderboard/airborne/seadronessee/object-detection).
 
-
-
 ### 4.3 YOLOv8
 
 #### 4.3.1 Training
@@ -168,7 +166,7 @@ Download the YOLOv8 project from the [official Ultralytics GitHub repository](ht
 Using the Ultralytics official documentation as a reference, you can create a Python training script in the `ultralytics` directory with the following structure:
 
 ```python
-model = YOLO(r'./yolo_sds.yaml')
+model = YOLO(r'./yolo_sds.yaml') # YOLOv8模型文件
 results = model.train(
     data = 'sds_balanced.yaml',
     workers=12,
@@ -184,11 +182,26 @@ Key details:
 
 - The `sds_balanced.yaml` is the dataset used for training and can either be `sds.yaml` (original split) or `sds_balanced.yaml` (rebalanced split). Both YAML files are available in the `dataset/yolov8` directory of this repository.
 
+In addition, YOLOv8 uses the CIoU loss function by default. To use the WIoU loss function as mentioned in the paper, the following changes should be made:
+
+- Import `wiou_loss` in `ultralytics/utils/loss.py`:
+
+- Modify the `forward` function in the `BboxLoss` class in `ultralytics/utils/loss.py` by adding the following code:
+  
+  ```python
+  if config.bbox_loss == 'WIoU':
+      loss, iou = bbox_wiou(pred_bboxes[fg_mask], target_bboxes[fg_mask], xywh=False)
+      loss_iou = (loss * weight).sum() / target_scores_sum
+  else:   # CIoU
+      iou = bbox_iou(pred_bboxes[fg_mask], target_bboxes[fg_mask], xywh=False, CIoU=True)
+      loss_iou = ((1.0 - iou) * weight).sum() / target_scores_sum
+  ```
+
 #### 4.3.2 Test on SeaDronesSee Leaderboard
 
 Using the structure outlined in the Ultralytics official documentation,  write the following code:
 
-```
+```python
 model = YOLO(r'./best.pt')  # Trained model weights
 metrics = model.val(split='test', save_json=True)
 ```
