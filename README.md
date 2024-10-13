@@ -49,21 +49,16 @@ After running the script, you will find the rebalanced annotation files in the s
 
 After downloading the MMDetection framework from the official MMDetection GitHub repository, the following directory structure will be available:
 
-\- mmdetection
-
-        \- \tools
-
-        \- \configs
-
-        ...
-
-        frx.py
-
-        frx_bl.py
-
-        cas.py
-
-        cas_bl.py
+```md
+- mmdetection
+    - /tools
+    - /configs
+    ...
+    frx.py
+    frx_bl.py
+    cas.py
+    cas_bl.py
+```
 
 Among these files, `frx.py`, `frx_bl.py`, `cas.py`, and `cas_bl.py` are the custom model training scripts provided to support the experiments in the paper. Specifically:
 
