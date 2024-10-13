@@ -75,9 +75,44 @@ python ./tools/train.py ./frx.py
 
 
 
-- The Faster R-CNN and Cascade R-CNN models, integrated with a ResNeXt-101 backbone and FPN, can be implemented and validated using the [MMDetection framework](https://github.com/open-mmlab/mmdetection). This framework provides the flexibility and tools needed to test these models, supporting the experiments presented in our paper.
 
-- Experimental results for YOLOv8s can be validated using the official [Ultralytics YOLOv8]([Releases · ultralytics/ultralytics · GitHub](https://github.com/ultralytics/ultralytics/releases)) repository, which offers state-of-the-art performance for real-time object detection and plays a key role in validating our findings.
+
+### YOLOv8
+
+Download the YOLOv8 project from the [official Ultralytics GitHub repository](https://github.com/ultralytics/ultralytics), the following directory structure will be available:
+
+```md
+- ultralytics
+    - /docs
+    ...
+    - /ultralytics
+        - /cfg
+        - /data
+        ...
+```
+
+Using the Ultralytics official documentation as a reference, you can create a training script with the following structure:
+
+```python
+model = YOLO(r'./yolo_sds.yaml')
+results = model.train(
+    data = 'sds_balanced.yaml',
+    workers=12,
+    batch=48
+)
+```
+
+Key details:
+
+- The `workers` and `batch` parameters should be adjusted based on your hardware, particularly the GPU. Setting these values too high on low-spec machines may lead to crashes. Additionally, these parameters impact both training speed and model performance.
+
+- The `yolo_sds.yaml` file represents the improved YOLOv8 model used in our experiments and can be found in the `validation/yolov8` directory of this repository.
+
+- The `sds_balanced.yaml` is the dataset used for training and can either be `sds.yaml` (original split) or `sds_balanced.yaml` (rebalanced split). Both YAML files are available in the `dataset/yolov8` directory of this repository.
+
+
+
+
 
 - All models are trained using the original and re-partitioned training and validation annotations. Validation results, evaluated on the [SeaDronesSee Leaderboard](https://macvi.org/leaderboard/airborne/seadronessee/object-detection), demonstrate noticeable performance improvements.
 
