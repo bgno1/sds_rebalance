@@ -65,7 +65,38 @@ The directory structure should look like this:
 
 ```
 
+- Run the `./greedy_resplit/copy_images.py` script from this repository. This script will properly partition the training and validation images from the `train_val` folder into the `train` and `val` folders under `./dataset/SeaDronesSee_balanced`, based on the rebalanced annotation files.
 
+- Copy the `images/test` folder from the official SeaDronesSee dataset to the `./dataset/SeaDronesSee_balanced/images` directory in this repository.
+
+The final directory structure of the dataset should look as follows:
+
+```md
+- /dataset
+    - /SeaDronesSee           # Original SeaDronesSee dataset
+        - /annotations        # Annotation files in JSON format
+        - /images             # Image data
+            - /test
+            - /train
+            - /val
+            - /train_val      # Contains all images from both train and val folders
+        - /labels             # (for YOLOv8) Annotations for images
+        - test.txt            # (for YOLOv8) List of test images
+        - train.txt           # (for YOLOv8) List of training images
+        - val.txt             # (for YOLOv8) List of validation images
+    - /SeaDronesSee_balanced  # Rebalanced version of the SeaDronesSee dataset
+        - /annotations        # Annotation files in JSON format
+        - /images             # Image data
+            - /test
+            - /train          # rebalanced后的训练集文件
+            - /val            # rebalanced后的验证集文件
+        - /labels             # (for YOLOv8) Annotations for images
+        - test.txt            # (for YOLOv8) List of test images
+        - train.txt           # (for YOLOv8) List of training images
+        - val.txt             # (for YOLOv8) List of validation images
+```
+
+The contents of the `SeaDronesSee/images` and `SeaDronesSee_balanced/images` folders need to be downloaded and generated through the steps mentioned above. All other files and folders are already included in this repository.
 
 ### 4.2 Faster R-CNN and Cascade R-CNN
 
