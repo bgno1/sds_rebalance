@@ -15,9 +15,9 @@ The `instances_train.json` and `instances_val.json` files used in this code can 
 
 ## 3. Dataset re-partitioning based on the greedy algorithm
 
-The code has been tested using **Python 3.8**.
+The code has been tested using Python 3.8.
 
-To execute the rebalancing process, run the following command in your terminal:
+To execute the rebalancing process, run the `greedy_resplit.py` script located in the `greedy_resplit` folder of this repository using the following command in your terminal
 
 ```bash
 python greedy_resplit.py
