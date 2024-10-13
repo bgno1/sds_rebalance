@@ -13,13 +13,9 @@ Our work seeks to address these limitations by proposing a greedy algorithm-base
 The SeaDronesSee dataset is available on the official GitHub repository: [SeaDronesSee GitHub](https://github.com/Ben93kie/SeaDronesSee).  
 The `instances_train.json` and `instances_val.json` files used in this code can be found in the official SeaDronesSee dataset, which is downloadable from the following link: [Download SeaDronesSee Dataset](https://cloud.cs.uni-tuebingen.de/index.php/s/aJQPHLGnke68M52).
 
-## User Guide
-
-### Requirements
+## Dataset re-partitioning based on the greedy algorithm
 
 The code has been tested in a **Windows environment** using **Python 3.8**.
-
-### How to Run
 
 To execute the rebalancing process, run the following command in your terminal:
 
@@ -27,7 +23,7 @@ To execute the rebalancing process, run the following command in your terminal:
 python greedy_resplit.py
 ```
 
-### Input Files
+**Input Files**
 
 This script requires the original SeaDronesSee dataset annotation files as inputs:
 
@@ -36,14 +32,14 @@ This script requires the original SeaDronesSee dataset annotation files as input
 
 Ensure these files are downloaded and placed in the correct directory before running the script. You can obtain them from the [dataset link](https://cloud.cs.uni-tuebingen.de/index.php/s/aJQPHLGnke68M52).
 
-### Output Files
+**Output Files**
 
 After running the script, you will find the rebalanced annotation files in the same directory as the input files:
 
 - `./instances_train_balanced.json` – Rebalanced training set annotations.
 - `./instances_val_balanced.json` – Rebalanced validation set annotations.
 
-## About Model Validation
+## Model Validation
 
 ### Faster R-CNN and Cascade R-CNN
 
@@ -73,10 +69,6 @@ To train the Faster R-CNN model using `frx.py`, navigate to the `mmdetection` di
 python ./tools/train.py ./frx.py
 ```
 
-
-
-
-
 ### YOLOv8
 
 Download the YOLOv8 project from the [official Ultralytics GitHub repository](https://github.com/ultralytics/ultralytics), the following directory structure will be available:
@@ -91,7 +83,7 @@ Download the YOLOv8 project from the [official Ultralytics GitHub repository](ht
         ...
 ```
 
-Using the Ultralytics official documentation as a reference, you can create a training script with the following structure:
+Using the Ultralytics official documentation as a reference, you can create a Python training script in the `ultralytics` directory with the following structure:
 
 ```python
 model = YOLO(r'./yolo_sds.yaml')
@@ -111,10 +103,6 @@ Key details:
 - The `sds_balanced.yaml` is the dataset used for training and can either be `sds.yaml` (original split) or `sds_balanced.yaml` (rebalanced split). Both YAML files are available in the `dataset/yolov8` directory of this repository.
 
 
-
-
-
-- All models are trained using the original and re-partitioned training and validation annotations. Validation results, evaluated on the [SeaDronesSee Leaderboard](https://macvi.org/leaderboard/airborne/seadronessee/object-detection), demonstrate noticeable performance improvements.
 
 ## References
 
