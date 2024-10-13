@@ -47,7 +47,9 @@ After running the script, you will find the rebalanced annotation files in the s
 
 ### Faster R-CNN and Cascade R-CNN
 
-After downloading the MMDetection framework from the official MMDetection GitHub repository, the following directory structure will be available:
+
+
+After downloading the MMDetection framework from the [official MMDetection GitHub repository](https://github.com/open-mmlab/mmdetection), the following directory structure will be available:
 
 ```md
 - mmdetection
