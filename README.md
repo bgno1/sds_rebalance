@@ -62,7 +62,6 @@ The directory structure should look like this:
         - test.txt        # (for YOLOv8) List of test images
         - train.txt       # (for YOLOv8) List of training images
         - val.txt         # (for YOLOv8) List of validation images
-
 ```
 
 - Run the `./greedy_resplit/copy_images.py` script from this repository. This script will properly partition the training and validation images from the `train_val` folder into the `train` and `val` folders under `./dataset/SeaDronesSee_balanced`, based on the rebalanced annotation files.
@@ -100,7 +99,11 @@ The contents of the `SeaDronesSee/images` and `SeaDronesSee_balanced/images` fol
 
 ### 4.2 Faster R-CNN and Cascade R-CNN
 
-After downloading the MMDetection framework from the [official MMDetection GitHub repository](https://github.com/open-mmlab/mmdetection), the following directory structure will be available:
+#### 4.2.1 Training
+
+- Download the MMDetection project from the [official MMDetection GitHub repository](https://github.com/open-mmlab/mmdetection), and merge the contents of the `mmdetection` folder into this repository.
+
+The relevant directory structure will look as follows:
 
 ```md
 - mmdetection
@@ -120,11 +123,31 @@ Among these files, `frx.py`, `frx_bl.py`, `cas.py`, and `cas_bl.py` are custom m
 
 **Example usage:**
 
-To train the Faster R-CNN model using `frx.py`, navigate to the `mmdetection` directory and execute the following command:
+- To train the Faster R-CNN model on the original dataset using `frx.py`, navigate to the `mmdetection` directory and execute the following command:
 
 ```bash
 python ./tools/train.py ./frx.py
 ```
+
+- To train the Faster R-CNN model on the rebalanced dataset using `frx_bl.py`, navigate to the `mmdetection` directory and execute the following command:
+
+```bash
+python ./tools/train.py ./frx_bl.py
+```
+
+#### 4.2.2 Test on SeaDronesSee Leaderboard
+
+- Use MMDetection’s test script to generate prediction files in PKL format. For example, to generate predictions using the model trained with `frx.py`, run the following command:
+
+```bash
+python ./tools/test.py ./frx.py ./work_dirs/frx/epoch_12.pth --out ./test.pkl
+```
+
+- Convert the `test.pkl` file generated in the previous step to the JSON format required by the SeaDronesSee Leaderboard using the `mmdetection/to_sds_json.py` script provided in this repository.
+
+- Validate the model’s generalization performance by submitting the JSON file to the SeaDronesSee Leaderboard server at [SeaDronesSee Leaderboard](https://macvi.org/leaderboard/airborne/seadronessee/object-detection).
+
+
 
 ### YOLOv8
 
@@ -158,8 +181,6 @@ Key details:
 - The `yolo_sds.yaml` file represents the improved YOLOv8 model used in our experiments and can be found in the `validation/yolov8` directory of this repository.
 
 - The `sds_balanced.yaml` is the dataset used for training and can either be `sds.yaml` (original split) or `sds_balanced.yaml` (rebalanced split). Both YAML files are available in the `dataset/yolov8` directory of this repository.
-
-
 
 ## References
 
