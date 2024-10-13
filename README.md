@@ -47,8 +47,6 @@ After running the script, you will find the rebalanced annotation files in the s
 
 ### Faster R-CNN and Cascade R-CNN
 
-
-
 After downloading the MMDetection framework from the [official MMDetection GitHub repository](https://github.com/open-mmlab/mmdetection), the following directory structure will be available:
 
 ```md
@@ -62,7 +60,7 @@ After downloading the MMDetection framework from the [official MMDetection GitHu
     cas_bl.py
 ```
 
-Among these files, `frx.py`, `frx_bl.py`, `cas.py`, and `cas_bl.py` are the custom model training scripts provided to support the experiments in the paper. Specifically:
+Among these files, `frx.py`, `frx_bl.py`, `cas.py`, and `cas_bl.py` are custom model training scripts provided in this GitHub repository to support the experiments in the paper. These scripts can be found in the `validation/mmdetection/` directory. Specifically:
 
 - `frx.py` and `frx_bl.py` are used to train the Faster R-CNN models on the original and rebalanced datasets, respectively.
 - `cas.py` and `cas_bl.py` are used to train the Cascade R-CNN models  on the original and rebalanced datasets, respectively.
