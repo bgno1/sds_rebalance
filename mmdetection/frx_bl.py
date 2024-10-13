@@ -3,7 +3,7 @@ _base_ = './configs/faster_rcnn/faster-rcnn_x101-64x4d_fpn_1x_coco.py'
 
 num_classes = 6
 
-data_root = '../dataset/SeaDronesSee/'
+data_root = '../dataset/SeaDronesSee_balanced/'
 dataset_type = 'CocoDataset'
 metainfo = {
     'classes': ('swimmer', 'floater', 'boat',
@@ -34,6 +34,7 @@ train_pipeline = [
 val_pipeline = [
     dict(type='LoadImageFromFile', backend_args=backend_args),
     dict(type='Resize', scale=(1080, 1920), keep_ratio=True),
+    # If you don't have a gt annotation, delete the pipeline
     dict(type='LoadAnnotations', with_bbox=True),
     dict(
         type='PackDetInputs',
@@ -43,6 +44,8 @@ val_pipeline = [
 test_pipeline = [
     dict(type='LoadImageFromFile', backend_args=backend_args),
     dict(type='Resize', scale=(1080, 1920), keep_ratio=True),
+    # If you don't have a gt annotation, delete the pipeline
+    # dict(type='LoadAnnotations', with_bbox=True),
     dict(
         type='PackDetInputs',
         meta_keys=('img_id', 'img_path', 'ori_shape', 'img_shape',
@@ -64,7 +67,7 @@ val_dataloader = dict(
     dataset=dict(
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='annotations/instances_val.json',
+        ann_file='annotations/instances_val_iscrowd.json',
         pipeline=val_pipeline,
         data_prefix=dict(img='images/val/')))
 
@@ -77,8 +80,8 @@ test_dataloader = dict(
         data_prefix=dict(img='images/test/')))
 
 val_evaluator = dict(ann_file=data_root + 'annotations/instances_val.json', classwise=True)
-test_evaluator = dict(ann_file=data_root + 'annotations/instances_test.json')
 
+test_evaluator = dict(ann_file=data_root + 'annotations/instances_test.json')
 
 # downloadable at https://download.openmmlab.com/mmdetection/v2.0/faster_rcnn/faster_rcnn_x101_64x4d_fpn_1x_coco/faster_rcnn_x101_64x4d_fpn_1x_coco_20200204-833ee192.pth
 load_from = './faster_rcnn_x101_64x4d_fpn_1x_coco_20200204-833ee192.pth'
