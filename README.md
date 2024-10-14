@@ -197,11 +197,9 @@ Key details:
 
 - The files `yolov8_sds.yaml`, `sds.yaml`, and `sds_balanced.yaml` can be found in the `yolo` directory of this repository.
 
-- 
-
 In addition, YOLOv8 uses the CIoU loss function by default. To use the WIoU loss function as mentioned in the paper, the following changes should be made:
 
-- Import `wiou_loss` in `ultralytics/utils/loss.py`:
+- Import `wiou_loss` (the `wiou_loss.py` file can be found in the `yolo` directory of this repository) into `ultralytics/utils/loss.py`.
 
 - Modify the `forward` function in the `BboxLoss` class in `ultralytics/utils/loss.py` by adding the following code:
   
