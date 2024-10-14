@@ -167,7 +167,7 @@ Download the YOLOv8 project from the [official Ultralytics GitHub repository](ht
         ...
 ```
 
-Using the Ultralytics official documentation as a reference, you can create a Python training script in the `ultralytics` directory with the following structure:
+Using the Ultralytics official documentation as a reference, create a Python training script in the `ultralytics` directory with the following structure, for training the YOLOv8 model on the rebalanced dataset:
 
 ```python
 model = YOLO(r'./yolov8_sds.yaml') # YOLOv8模型文件
