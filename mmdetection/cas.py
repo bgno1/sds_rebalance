@@ -76,7 +76,7 @@ val_dataloader = dict(
     dataset=dict(
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='annotations/instances_val_iscrowd.json',
+        ann_file='annotations/instances_val.json',
         pipeline=val_pipeline,
         data_prefix=dict(img='images/val/')))
 
@@ -88,7 +88,7 @@ test_dataloader = dict(
         ann_file='annotations/instances_test.json',
         data_prefix=dict(img='images/test/')))
 
-val_evaluator = dict(ann_file=data_root + 'annotations/instances_val_iscrowd.json', classwise=True)
+val_evaluator = dict(ann_file=data_root + 'annotations/instances_val.json', classwise=True)
 test_evaluator = dict(ann_file=data_root + 'annotations/instances_test.json')
 
 # downloadable at https://mmdetection.readthedocs.io/en/latest/model_zoo.html
