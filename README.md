@@ -44,7 +44,7 @@ After running the script, you will find the rebalanced annotation files in the s
 
 - Download the SeaDronesSee dataset from [this link](https://cloud.cs.uni-tuebingen.de/index.php/s/aJQPHLGnke68M52) and copy the contents of the `images` folder into the `./dataset/SeaDronesSee` directory of this repository.
 
-- Create a `dataset/SeaDronesSee/images/train_val` directory and move all the images from the `train` and `val` folders into this newly created folder.
+- Create a `dataset/SeaDronesSee/images/train_val` directory and copy all the images from the `train` and `val` folders into this newly created folder.
 
 The directory structure should look like this:
 
