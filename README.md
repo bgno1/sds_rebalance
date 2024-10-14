@@ -99,6 +99,8 @@ The contents of the `SeaDronesSee/images` and `SeaDronesSee_balanced/images` fol
 
 #### 4.2.1 Training
 
+**Download and prepare the MMDetection project**
+
 - Download the MMDetection project from the [official MMDetection GitHub repository](https://github.com/open-mmlab/mmdetection), and copy the contents of the `mmdetection-main` folder into this repository's `mmdetection` folder. Follow the official guidelines to install the necessary dependencies.
 
 The relevant directory structure will look as follows:
@@ -132,6 +134,10 @@ python ./tools/train.py ./frx.py
 ```bash
 python ./tools/train.py ./frx_bl.py
 ```
+
+**Note: Regarding Loading Pretrained Weights**
+
+In the files `frx.py`, `frx_bl.py`, `cas.py`, and `cas_bl.py`, the last line of code that loads the pretrained weights has been commented out, as it requires downloading large `.pth` files. If you wish to train models with higher accuracy using pretrained weights, you can download the corresponding `.pth` files from the [Benchmark and Model Zoo — MMDetection 3.3.0 documentation](https://mmdetection.readthedocs.io/en/latest/model_zoo.html), place them in the `mmdetection` folder, and uncomment the last line in each of the four files: `frx.py`, `frx_bl.py`, `cas.py`, and `cas_bl.py`.
 
 #### 4.2.2 Test on SeaDronesSee Leaderboard
 

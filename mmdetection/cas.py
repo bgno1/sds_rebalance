@@ -92,5 +92,5 @@ val_evaluator = dict(ann_file=data_root + 'annotations/instances_val_iscrowd.jso
 test_evaluator = dict(ann_file=data_root + 'annotations/instances_test.json')
 
 # downloadable at https://mmdetection.readthedocs.io/en/latest/model_zoo.html
-load_from = './cascade_rcnn_x101_64x4d_fpn_1x_coco_20200515_075702-43ce6a30.pth'
+# load_from = './cascade_rcnn_x101_64x4d_fpn_1x_coco_20200515_075702-43ce6a30.pth'
 
