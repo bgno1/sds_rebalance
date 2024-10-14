@@ -10,8 +10,7 @@ Our work seeks to address these limitations by proposing a greedy algorithm-base
 
 ## 2. SeaDronesSee Dataset
 
-The SeaDronesSee dataset is available on the official GitHub repository: [SeaDronesSee GitHub](https://github.com/Ben93kie/SeaDronesSee).  
-The `instances_train.json` and `instances_val.json` files used in this code can be found in the official SeaDronesSee dataset, which is downloadable from the following link: [Download SeaDronesSee Dataset](https://cloud.cs.uni-tuebingen.de/index.php/s/aJQPHLGnke68M52).
+The SeaDronesSee dataset, essential for maritime search and rescue object detection tasks, can be downloaded directly from the official repository: [Download SeaDronesSee Dataset](https://cloud.cs.uni-tuebingen.de/index.php/s/aJQPHLGnke68M52). For further details, including dataset structure and usage guidelines, please refer to the official GitHub repository: [SeaDronesSee GitHub](https://github.com/Ben93kie/SeaDronesSee). Comprehensive information about the dataset and its applications can also be found on the official SeaDronesSee website: [https://macvi.org/](https://macvi.org/).
 
 ## 3. Dataset re-partitioning based on the greedy algorithm
 
