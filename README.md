@@ -170,21 +170,34 @@ Download the YOLOv8 project from the [official Ultralytics GitHub repository](ht
 Using the Ultralytics official documentation as a reference, create a Python training script in the `ultralytics` directory with the following structure, for training the YOLOv8 model on the rebalanced dataset:
 
 ```python
-model = YOLO(r'./yolov8_sds.yaml') # YOLOv8模型文件
+model = YOLO(r'./yolov8_sds.yaml')  # Define the YOLOv8 model architecture via a YAML configuration file
 results = model.train(
-    data = 'sds_balanced.yaml',
+    data = 'sds_balanced.yaml',  # Define the dataset structure and location via a YAML configuration file
     workers=12,
     batch=48
 )
+
+```
+
+Replace `sds_balanced.yaml` with `sds.yaml` in the code to train on the original dataset:
+
+```python
+model = YOLO(r'./yolov8_sds.yaml')  # Define the YOLOv8 model architecture via a YAML configuration file
+results = model.train(
+    data = 'sds.yaml',  # Define the original dataset structure and location via a YAML configuration file
+    workers=12,
+    batch=48
+)
+
 ```
 
 Key details:
 
 - The `workers` and `batch` parameters should be adjusted based on your hardware, particularly the GPU. Setting these values too high on low-spec machines may lead to crashes. Additionally, these parameters impact both training speed and model performance.
 
-- The `yolov8_sds.yaml` file represents the improved YOLOv8 model used in our experiments and can be found in the `yolov8` directory of this repository.
+- The files `yolov8_sds.yaml`, `sds.yaml`, and `sds_balanced.yaml` can be found in the `yolo` directory of this repository.
 
-- The `sds_balanced.yaml` is the dataset used for training and can either be `sds.yaml` (original split) or `sds_balanced.yaml` (rebalanced split). Both YAML files are available in the `yolov8` directory of this repository.
+- 
 
 In addition, YOLOv8 uses the CIoU loss function by default. To use the WIoU loss function as mentioned in the paper, the following changes should be made:
 
