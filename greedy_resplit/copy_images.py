@@ -7,7 +7,7 @@ train_json_path = './instances_train_balanced.json'
 val_json_path = './instances_val_balanced.json'
 source_folder = '../dataset/SeaDronesSee/images/train_val'
 train_dest_folder = '../dataset/SeaDronesSee_balanced/images/train'
-val_dest_folder = '../datasets/SeaDronesSee_balanced/images/val'
+val_dest_folder = '../dataset/SeaDronesSee_balanced/images/val'
 
 # Ensure destination folders exist
 os.makedirs(train_dest_folder, exist_ok=True)
