@@ -5,7 +5,7 @@ import json
 # Define file paths
 train_json_path = './instances_train_balanced.json'
 val_json_path = './instances_val_balanced.json'
-source_folder = './train_val'
+source_folder = '../dataset/SeaDronesSee/images/train_val'
 train_dest_folder = '../dataset/SeaDronesSee_balanced/images/train'
 val_dest_folder = '../datasets/SeaDronesSee_balanced/images/val'
 
