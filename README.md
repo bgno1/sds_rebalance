@@ -78,7 +78,6 @@ The final directory structure of the dataset should look as follows:
             - test/           
             - train/          # original training set
             - val/            # original validation set
-            - train_val/      # Contains all images from both train and val folders
         - labels/             # (for YOLOv8) Annotations for images
         - test.txt            # (for YOLOv8) List of test images
         - train.txt           # (for YOLOv8) List of training images
