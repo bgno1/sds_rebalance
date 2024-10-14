@@ -87,8 +87,8 @@ The final directory structure of the dataset should look as follows:
         - annotations/        # Annotation files in JSON format
         - images/             # Image data
             - test/
-            - train/          # rebalanced后的训练集文件
-            - val/            # rebalanced后的验证集文件
+            - train/          # rebalanced training set
+            - val/            # rebalanced validation set
         - labels/             # (for YOLOv8) Annotations for images
         - test.txt            # (for YOLOv8) List of test images
         - train.txt           # (for YOLOv8) List of training images
