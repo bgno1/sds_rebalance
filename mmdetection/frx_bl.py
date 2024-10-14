@@ -67,7 +67,7 @@ val_dataloader = dict(
     dataset=dict(
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='annotations/instances_val_iscrowd.json',
+        ann_file='annotations/instances_val.json',
         pipeline=val_pipeline,
         data_prefix=dict(img='images/val/')))
 
