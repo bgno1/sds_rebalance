@@ -10,7 +10,7 @@ Our work seeks to address these limitations by proposing a greedy algorithm-base
 
 ## 2. SeaDronesSee Dataset
 
-The SeaDronesSee dataset, essential for maritime search and rescue object detection tasks, can be downloaded directly from the official repository: [Download SeaDronesSee Dataset](https://cloud.cs.uni-tuebingen.de/index.php/s/aJQPHLGnke68M52). For further details, including dataset structure and usage guidelines, please refer to the official SeaDronesSee website: [https://macvi.org/](https://macvi.org/).
+The SeaDronesSee dataset, essential for maritime search and rescue object detection tasks, can be downloaded directly from the official repository: [Download SeaDronesSee Dataset](https://cloud.cs.uni-tuebingen.de/index.php/s/aJQPHLGnke68M52). For further details please refer to the official SeaDronesSee website: [https://macvi.org/](https://macvi.org/).
 
 ## 3. Dataset re-partitioning based on the greedy algorithm
 
