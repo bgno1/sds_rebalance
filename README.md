@@ -75,9 +75,9 @@ The final directory structure of the dataset should look as follows:
     - SeaDronesSee/           # Original SeaDronesSee dataset
         - annotations/        # Annotation files in JSON format
         - images/             # Image data
-            - test/
-            - train/
-            - val/
+            - test/           
+            - train/          # original training set
+            - val/            # original validation set
             - train_val/      # Contains all images from both train and val folders
         - labels/             # (for YOLOv8) Annotations for images
         - test.txt            # (for YOLOv8) List of test images
