@@ -99,7 +99,7 @@ The contents of the `SeaDronesSee/images` and `SeaDronesSee_balanced/images` fol
 
 #### 4.2.1 Training
 
-- Download the MMDetection project from the [official MMDetection GitHub repository](https://github.com/open-mmlab/mmdetection), and merge the contents of the `mmdetection` folder into this repository.
+- Download the MMDetection project from the [official MMDetection GitHub repository](https://github.com/open-mmlab/mmdetection), and copy the contents of the `mmdetection-main` folder into this repository's `mmdetection` folder. Follow the official guidelines to install the necessary dependencies.
 
 The relevant directory structure will look as follows:
 
