@@ -114,7 +114,7 @@ The relevant directory structure will look as follows:
     cas_bl.py
 ```
 
-Among these files, `frx.py`, `frx_bl.py`, `cas.py`, and `cas_bl.py` are custom model training scripts provided in this GitHub repository to support the experiments in the paper. These scripts can be found in the `validation/mmdetection/` directory. Specifically:
+Among these files, `frx.py`, `frx_bl.py`, `cas.py`, and `cas_bl.py` are custom model training scripts provided in our repository to support the experiments in the paper. Specifically:
 
 - `frx.py` and `frx_bl.py` are used to train the Faster R-CNN models on the original and rebalanced datasets, respectively.
 - `cas.py` and `cas_bl.py` are used to train the Cascade R-CNN models  on the original and rebalanced datasets, respectively.
