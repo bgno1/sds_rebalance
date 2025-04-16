@@ -97,9 +97,29 @@ The directory structure should look like this:
         - val.txt         # (for YOLOv8 and YOLO11) List of validation images
 ```
 
-- Run the `./greedy_resplit/copy_images.py` script from this repository. This script will properly partition the training and validation images from the `train_val` folder into the `train` and `val` folders under `./dataset/SeaDronesSee_balanced`, based on the rebalanced annotation files.
+- Run the `./greedy_resplit/copy_images.py` script to organize images into rebalanced training and validation sets based on the dataset version. Use the `--dataset` argument to specify whether to process the SeaDronesSee v1 or v2 dataset:
+  
+  ```bash
+  python ./greedy_resplit/copy_images.py --dataset sdsv1
+  ```
+  
+  or
+  
+  ```bash
+  python ./greedy_resplit/copy_images.py --dataset sdsv2
+  ```
+  
+  This script reads the corresponding rebalanced annotation files and copies images from the `train_val` folder into the appropriate `train` and `val` directories under:
+  
+  - `./dataset/SeaDronesSee_balanced` for v1
+  
+  - `./dataset/SeaDronesSee_balanced_v2` for v2
 
-- Copy the `images/test` folder from the official SeaDronesSee dataset to the `./dataset/SeaDronesSee_balanced/images` directory in this repository.
+- Copy the `images/test` folder from the official SeaDronesSee datasets into the corresponding balanced dataset directories in this repository:
+  
+  - For v1, copy it to `./dataset/SeaDronesSee_balanced/images`
+  
+  - - For v2, copy it to `./dataset/SeaDronesSee_balanced_v2/images`
 
 The final directory structure of the dataset should look as follows:
 

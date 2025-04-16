@@ -4,3 +4,5 @@ greedy_resplit/instances_train.json
 greedy_resplit/instances_val.json
 greedy_resplit/instances_train_balanced.json
 greedy_resplit/instances_val_balanced.json
+greedy_resplit/instances_train_balanced_v2.json
+greedy_resplit/instances_val_balanced_v2.json

@@ -1,13 +1,27 @@
 import os
 import shutil
 import json
+import argparse
 
-# Define file paths
-train_json_path = './instances_train_balanced.json'
-val_json_path = './instances_val_balanced.json'
-source_folder = '../dataset/SeaDronesSee/images/train_val'
-train_dest_folder = '../dataset/SeaDronesSee_balanced/images/train'
-val_dest_folder = '../dataset/SeaDronesSee_balanced/images/val'
+# Parse command-line argument
+parser = argparse.ArgumentParser()
+parser.add_argument('--dataset', type=str, choices=['sdsv1', 'sdsv2'], required=True,
+                    help='Specify which dataset version to use: sdsv1 or sdsv2')
+args = parser.parse_args()
+
+# Define paths based on dataset version
+if args.dataset == 'sdsv1':
+    train_json_path = './instances_train_balanced.json'
+    val_json_path = './instances_val_balanced.json'
+    source_folder = '../dataset/SeaDronesSee/images/train_val'
+    train_dest_folder = '../dataset/SeaDronesSee_balanced/images/train'
+    val_dest_folder = '../dataset/SeaDronesSee_balanced/images/val'
+elif args.dataset == 'sdsv2':
+    train_json_path = './instances_train_balanced_v2.json'
+    val_json_path = './instances_val_balanced_v2.json'
+    source_folder = '../dataset/SeaDronesSee_v2/images/train_val'
+    train_dest_folder = '../dataset/SeaDronesSee_balanced_v2/images/train'
+    val_dest_folder = '../dataset/SeaDronesSee_balanced_v2/images/val'
 
 # Ensure destination folders exist
 os.makedirs(train_dest_folder, exist_ok=True)
