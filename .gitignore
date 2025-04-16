@@ -1,5 +1,4 @@
 
-dataset/
 greedy_resplit/instances_train.json
 greedy_resplit/instances_val.json
 greedy_resplit/instances_train_balanced.json
