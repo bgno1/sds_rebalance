@@ -186,24 +186,29 @@ The relevant directory structure will look as follows:
     ...
     frx.py
     frx_bl.py
+    frx_v2.py
+    frx_v2_bl.py
     cas.py
     cas_bl.py
+    cas_v2.py
+    cas_v2_bl.py
 ```
 
-Among these files, `frx.py`, `frx_bl.py`, `cas.py`, and `cas_bl.py` are custom model training scripts provided in our repository to support the experiments in the paper. Specifically:
+Among these files, `frx.py`, `frx_bl.py`, `cas.py`, and `cas_bl.py` (as well as those with "v2" in their names) are custom model training scripts provided in our repository to support the experiments in the paper (files with `v2` in the name are for the SeaDronesSee v2 dataset; others are for v1). Specifically:
 
-- `frx.py` and `frx_bl.py` are used to train the Faster R-CNN models on the original and rebalanced datasets, respectively.
-- `cas.py` and `cas_bl.py` are used to train the Cascade R-CNN models  on the original and rebalanced datasets, respectively.
+- `frx.py` and `frx_bl.py` are used to train the Faster R-CNN models on the original and rebalanced SeaDronesSee v1 datasets, respectively.
+- `cas.py` and `cas_bl.py` are used to train the Cascade R-CNN models  on the original and rebalanced SeaDronesSee v2 datasets, respectively.
+- Files with the suffix `_v2` and `_v2_bl` follow the same naming convention and are used for training on the SeaDronesSee v2 dataset (original and rebalanced versions, respectively).
 
 **Example usage:**
 
-- To train the Faster R-CNN model on the original dataset using `frx.py`, navigate to the `mmdetection` directory and execute the following command:
+- To train the Faster R-CNN model on the original SeaDronesSee v1 dataset using `frx.py`, navigate to the `mmdetection` directory and execute the following command:
 
 ```bash
 python ./tools/train.py ./frx.py
 ```
 
-- To train the Faster R-CNN model on the rebalanced dataset using `frx_bl.py`, navigate to the `mmdetection` directory and execute the following command:
+- To train the Faster R-CNN model on the rebalanced SeaDronesSee v1 dataset using `frx_bl.py`, navigate to the `mmdetection` directory and execute the following command:
 
 ```bash
 python ./tools/train.py ./frx_bl.py
@@ -211,7 +216,7 @@ python ./tools/train.py ./frx_bl.py
 
 **Note: Regarding Loading Pretrained Weights**
 
-In the files `frx.py`, `frx_bl.py`, `cas.py`, and `cas_bl.py`, the last line of code that loads the pretrained weights has been commented out, as it requires downloading large `.pth` files. If you wish to train models with higher accuracy using pretrained weights, you can download the corresponding `.pth` files from the [Benchmark and Model Zoo — MMDetection 3.3.0 documentation](https://mmdetection.readthedocs.io/en/latest/model_zoo.html), place them in the `mmdetection` folder, and uncomment the last line in each of the four files: `frx.py`, `frx_bl.py`, `cas.py`, and `cas_bl.py`.
+In the files `frx.py`, `frx_bl.py`, `cas.py`, and `cas_bl.py` (as well as those with "v2" in their names), the last line of code that loads the pretrained weights has been commented out, as it requires downloading large `.pth` files. If you wish to train models with higher accuracy using pretrained weights, you can download the corresponding `.pth` files from the [Benchmark and Model Zoo — MMDetection 3.3.0 documentation](https://mmdetection.readthedocs.io/en/latest/model_zoo.html), place them in the `mmdetection` folder, and uncomment the last line in each of the files.
 
 #### 4.2.2 Test on SeaDronesSee Leaderboard
 
