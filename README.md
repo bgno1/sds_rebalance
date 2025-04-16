@@ -55,9 +55,9 @@ After running the script, you will find the rebalanced annotation files in the s
 
 - For SeaDronesSee v2:
   
-  - `./instances_train_balanced.json` – Rebalanced training set annotations.
+  - `./instances_train_balanced_v2.json` – Rebalanced training set annotations.
   
-  - `./instances_val_balanced.json` – Rebalanced validation set annotations.
+  - `./instances_val_balanced_v2.json` – Rebalanced validation set annotations.
 
 
 
