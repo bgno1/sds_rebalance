@@ -167,10 +167,23 @@ val_images = [img for img_id, img in all_images.items() if image_splits[img_id] 
 print(f"Train images: {len(train_images)}")
 print(f"Validation images: {len(val_images)}")
 
-with open('./instances_train_balanced.json', 'w') as train_file:
-    json.dump({'images': train_images,
-               'annotations': [ann for ann in all_annotations if image_splits[ann['image_id']] == 'train']}, train_file)
+# Determine output file names based on dataset version
+if args.dataset == 'sdsv1':
+    train_output_path = './instances_train_balanced.json'
+    val_output_path = './instances_val_balanced.json'
+elif args.dataset == 'sdsv2':
+    train_output_path = './instances_train_balanced_v2.json'
+    val_output_path = './instances_val_balanced_v2.json'
 
-with open('./instances_val_balanced.json', 'w') as val_file:
-    json.dump({'images': val_images,
-               'annotations': [ann for ann in all_annotations if image_splits[ann['image_id']] == 'val']}, val_file)
+# Save rebalanced annotations
+with open(train_output_path, 'w') as train_file:
+    json.dump({
+        'images': train_images,
+        'annotations': [ann for ann in all_annotations if image_splits[ann['image_id']] == 'train']
+    }, train_file)
+
+with open(val_output_path, 'w') as val_file:
+    json.dump({
+        'images': val_images,
+        'annotations': [ann for ann in all_annotations if image_splits[ann['image_id']] == 'val']
+    }, val_file)

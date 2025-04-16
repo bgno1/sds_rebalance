@@ -45,10 +45,19 @@ Ensure these files are downloaded and placed in the correct directory before run
 
 **Output Files**
 
-After running the script, you will find the rebalanced annotation files in the same directory as the input files:
+After running the script, you will find the rebalanced annotation files in the same directory as the input files. The output filenames depend on the dataset version you specify:
 
-- `./instances_train_balanced.json` – Rebalanced training set annotations.
-- `./instances_val_balanced.json` – Rebalanced validation set annotations.
+- For SeaDronesSee v1:
+  
+  - `./instances_train_balanced.json` – Rebalanced training set annotations.
+  
+  - `./instances_val_balanced.json` – Rebalanced validation set annotations.
+
+- For SeaDronesSee v2:
+  
+  - `./instances_train_balanced.json` – Rebalanced training set annotations.
+  
+  - `./instances_val_balanced.json` – Rebalanced validation set annotations.
 
 
 
