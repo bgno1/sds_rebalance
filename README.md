@@ -113,13 +113,13 @@ The directory structure should look like this:
   
   - `./dataset/SeaDronesSee_balanced` for v1
   
-  - `./dataset/SeaDronesSee_balanced_v2` for v2
+  - `./dataset/SeaDronesSee_v2_balanced` for v2
 
 - Copy the `images/test` folder from the official SeaDronesSee datasets into the corresponding balanced dataset directories in this repository:
   
   - For v1, copy it to `./dataset/SeaDronesSee_balanced/images`
   
-  - - For v2, copy it to `./dataset/SeaDronesSee_balanced_v2/images`
+  - For v2, copy it to `./dataset/SeaDronesSee_v2_balanced/images`
 
 The final directory structure of the dataset should look as follows:
 
@@ -131,23 +131,43 @@ The final directory structure of the dataset should look as follows:
             - test/           
             - train/          # original training set
             - val/            # original validation set
-        - labels/             # (for YOLOv8) Annotations for images
-        - test.txt            # (for YOLOv8) List of test images
-        - train.txt           # (for YOLOv8) List of training images
-        - val.txt             # (for YOLOv8) List of validation images
+        - labels/             # (for YOLOv8 and YOLO11) Annotations for images
+        - test.txt            # (for YOLOv8 and YOLO11) List of test images
+        - train.txt           # (for YOLOv8 and YOLO11) List of training images
+        - val.txt             # (for YOLOv8 and YOLO11) List of validation images
     - SeaDronesSee_balanced/  # Rebalanced version of the SeaDronesSee dataset
         - annotations/        # Annotation files in JSON format
         - images/             # Image data
             - test/
             - train/          # rebalanced training set
             - val/            # rebalanced validation set
-        - labels/             # (for YOLOv8) Annotations for images
-        - test.txt            # (for YOLOv8) List of test images
-        - train.txt           # (for YOLOv8) List of training images
-        - val.txt             # (for YOLOv8) List of validation images
+        - labels/             # (for YOLOv8 and YOLO11) Annotations for images
+        - test.txt            # (for YOLOv8 and YOLO11) List of test images
+        - train.txt           # (for YOLOv8 and YOLO11) List of training images
+        - val.txt             # (for YOLOv8 and YOLO11) List of validation images
+    - SeaDronesSee_v2/           # Original SeaDronesSee v2 dataset
+        - annotations/        # Annotation files in JSON format
+        - images/             # Image data
+            - test/           
+            - train/          # original training set
+            - val/            # original validation set
+        - labels/             # (for YOLOv8 and YOLO11) Annotations for images
+        - test.txt            # (for YOLOv8 and YOLO11) List of test images
+        - train.txt           # (for YOLOv8 and YOLO11) List of training images
+        - val.txt             # (for YOLOv8 and YOLO11) List of validation images
+    - SeaDronesSee_v2_balanced/  # Rebalanced version of the SeaDronesSee v2 dataset
+        - annotations/        # Annotation files in JSON format
+        - images/             # Image data
+            - test/
+            - train/          # rebalanced training set
+            - val/            # rebalanced validation set
+        - labels/             # (for YOLOv8 and YOLO11) Annotations for images
+        - test.txt            # (for YOLOv8 and YOLO11) List of test images
+        - train.txt           # (for YOLOv8 and YOLO11) List of training images
+        - val.txt             # (for YOLOv8 and YOLO11) List of validation images
 ```
 
-The contents of the `SeaDronesSee/images` and `SeaDronesSee_balanced/images` folders need to be downloaded and generated through the steps mentioned above. All other files and folders are already included in this repository.
+The contents of the `SeaDronesSee/images` , `SeaDronesSee_balanced/images`, `SeaDronesSee_v2/images`  and  `SeaDronesSee_v2_balanced/images` folders need to be downloaded and generated through the steps mentioned above. All other files and folders are already included in this repository.
 
 ### 4.2 Faster R-CNN and Cascade R-CNN
 

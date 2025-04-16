@@ -20,8 +20,8 @@ elif args.dataset == 'sdsv2':
     train_json_path = './instances_train_balanced_v2.json'
     val_json_path = './instances_val_balanced_v2.json'
     source_folder = '../dataset/SeaDronesSee_v2/images/train_val'
-    train_dest_folder = '../dataset/SeaDronesSee_balanced_v2/images/train'
-    val_dest_folder = '../dataset/SeaDronesSee_balanced_v2/images/val'
+    train_dest_folder = '../dataset/SeaDronesSee_v2_balanced/images/train'
+    val_dest_folder = '../dataset/SeaDronesSee_v2_balanced/images/val'
 
 # Ensure destination folders exist
 os.makedirs(train_dest_folder, exist_ok=True)
