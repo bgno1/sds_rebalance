@@ -71,10 +71,21 @@ The directory structure should look like this:
             - train/
             - val/
             - train_val/  # Contains all images from both train and val folders
-        - labels/         # (for YOLOv8) Annotations for images
-        - test.txt        # (for YOLOv8) List of test images
-        - train.txt       # (for YOLOv8) List of training images
-        - val.txt         # (for YOLOv8) List of validation images
+        - labels/         # (for YOLOv8 and YOLO11) Annotations for images
+        - test.txt        # (for YOLOv8 and YOLO11) List of test images
+        - train.txt       # (for YOLOv8 and YOLO11) List of training images
+        - val.txt         # (for YOLOv8 and YOLO11) List of validation images
+    - SeaDronesSee_v2/
+        - annotations/    # Annotation files in JSON format
+        - images/         # Image data
+            - test/
+            - train/
+            - val/
+            - train_val/  # Contains all images from both train and val folders
+        - labels/         # (for YOLOv8 and YOLO11) Annotations for images
+        - test.txt        # (for YOLOv8 and YOLO11) List of test images
+        - train.txt       # (for YOLOv8 and YOLO11) List of training images
+        - val.txt         # (for YOLOv8 and YOLO11) List of validation images
 ```
 
 - Run the `./greedy_resplit/copy_images.py` script from this repository. This script will properly partition the training and validation images from the `train_val` folder into the `train` and `val` folders under `./dataset/SeaDronesSee_balanced`, based on the rebalanced annotation files.
