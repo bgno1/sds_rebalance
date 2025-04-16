@@ -246,10 +246,10 @@ Download the YOLO project from the [official Ultralytics GitHub repository](http
         ...
 ```
 
-Using the Ultralytics official documentation as a reference, create a Python training script in the `ultralytics` directory with the following structure, for training the YOLOv8 model on the rebalanced dataset:
+Using the Ultralytics official documentation as a reference, create a Python training script in the `ultralytics` directory with the following structure, for training the YOLO11 model on the SeaDronesSee v1 rebalanced dataset:
 
 ```python
-model = YOLO(r'./yolov8_sds.yaml')  # Define the YOLOv8 model architecture via a YAML configuration file
+model = YOLO(r'./yolo11_sds.yaml')  # Define the YOLOv8 model architecture via a YAML configuration file
 results = model.train(
     data = 'sds_balanced.yaml',  # Define the dataset structure and location via a YAML configuration file
     workers=12,
@@ -257,10 +257,10 @@ results = model.train(
 )
 ```
 
-Replace `sds_balanced.yaml` with `sds.yaml` in the code to train on the original dataset:
+Replace `sds_balanced.yaml` with `sds.yaml` in the code to train on the original SeaDronesSee v1 dataset:
 
 ```python
-model = YOLO(r'./yolov8_sds.yaml')  # Define the YOLOv8 model architecture via a YAML configuration file
+model = YOLO(r'./yolo11_sds.yaml')  # Define the YOLOv8 model architecture via a YAML configuration file
 results = model.train(
     data = 'sds.yaml',  # Define the original dataset structure and location via a YAML configuration file
     workers=12,
@@ -268,13 +268,23 @@ results = model.train(
 )
 ```
 
+In summary, the argument passed to the `YOLO(...)` function can be one of the following:
+
+- `yolov8_sds.yaml`, `yolov8_sds2.yaml`, `yolo11_sds.yaml`, or `yolo11_sds2.yaml`  
+  These YAML files define the architecture of different YOLO versions (YOLOv8 or YOLO11) for the corresponding SeaDronesSee v1 or v2 datasets.
+
+The `data` argument passed to `model.train(...)` should match the dataset split and version being used, and can be one of:
+
+- `sds.yaml`, `sds_balanced.yaml`, `sds2.yaml`, or `sds2_balanced.yaml`  
+  These files define the dataset structure and annotation paths for the original or rebalanced SeaDronesSee v1 and v2 datasets.
+
 Key details:
 
 - The `workers` and `batch` parameters should be adjusted based on your hardware, particularly the GPU. Setting these values too high on low-spec machines may lead to crashes. Additionally, these parameters impact both training speed and model performance.
 
-- The files `yolov8_sds.yaml`, `sds.yaml`, and `sds_balanced.yaml` can be found in the `yolo` directory of this repository.
+- All of the YAML files mentioned above can be found in the `yolo` directory of this repository and can be modified as needed.
 
-In addition, YOLOv8 uses the CIoU loss function by default. To use the WIoU loss function as mentioned in the paper, the following changes should be made:
+In addition, YOLOv8 and YOLO11 uses the CIoU loss function by default. To use the WIoU loss function as mentioned in the paper, the following changes should be made:
 
 - Import `wiou_loss` (the `wiou_loss.py` file can be found in the `yolo` directory of this repository) into `ultralytics/utils/loss.py`.
 
