@@ -4,13 +4,13 @@
 
 ## 1. Overview
 
-This repository contains the code supporting the findings in the paper *"Optimizing Drone-Captured Maritime Rescue Image Object Detection through Dataset Rebalancing under Sample Constraints,"* which is currently under peer review. The SeaDronesSee dataset [1], a highly valuable and unique resource for drone-based maritime search and rescue research, provides critical data for advancing object detection models in this field. However, due to the challenging nature of collecting data in such specialized and difficult environments, the dataset inherently faces sample constraints and imbalances in the distribution of certain categories.
+This repository contains the code supporting the findings in the paper *"Optimizing Drone-Captured Maritime Rescue Image Object Detection through Dataset Rebalancing under Sample Constraints,"* which is currently under peer review. The SeaDronesSee dataset [1], along with its extended version SeaDronesSee v2 [2], is a highly valuable and unique resource for drone-based maritime search and rescue research, providing critical data for advancing object detection models in this field. However, due to the challenging nature of collecting data in such specialized and difficult environments, the datasets inherently face sample constraints and imbalances in the distribution of certain categories.
 
-Our work seeks to address these limitations by proposing a greedy algorithm-based method for re-partitioning the dataset. This approach aims to enhance the generalization and training efficiency of detection models while making the most of the invaluable data contained within the SeaDronesSee dataset. Ultimately, our goal is to maximize the impact of this precious resource, ensuring it can be fully leveraged to improve drone-based maritime rescue operations.
+Our work seeks to address these limitations by proposing a greedy algorithm-based method for re-partitioning the datasets. This approach aims to enhance the generalization and training efficiency of detection models while making the most of the invaluable data contained within the SeaDronesSee series datasets. Ultimately, our goal is to maximize the impact of these valuable resources, ensuring they can be fully leveraged to improve drone-based maritime rescue operations.
 
-## 2. SeaDronesSee Dataset
+## 2. SeaDronesSee series Datasets
 
-The SeaDronesSee dataset, essential for maritime search and rescue object detection tasks, can be downloaded directly from the official repository: [Download SeaDronesSee Dataset](https://cloud.cs.uni-tuebingen.de/index.php/s/aJQPHLGnke68M52). For further details please refer to the official SeaDronesSee website: [https://macvi.org/](https://macvi.org/).
+The SeaDronesSee v1 and v2 datasets , essential for maritime search and rescue object detection tasks, can be downloaded directly from the official repository: [Download SeaDronesSee v1 Dataset](https://cloud.cs.uni-tuebingen.de/index.php/s/aJQPHLGnke68M52), and [SeaDronesSee v2 Dataset](https://cloud.cs.uni-tuebingen.de/index.php/s/ZZxX65FGnQ8zjBP). For further details please refer to the official SeaDronesSee website: [https://macvi.org/](https://macvi.org/).
 
 ## 3. Dataset re-partitioning based on the greedy algorithm
 
@@ -176,7 +176,6 @@ results = model.train(
     workers=12,
     batch=48
 )
-
 ```
 
 Replace `sds_balanced.yaml` with `sds.yaml` in the code to train on the original dataset:
@@ -188,7 +187,6 @@ results = model.train(
     workers=12,
     batch=48
 )
-
 ```
 
 Key details:
@@ -226,3 +224,5 @@ Once executed, use the information from the output log to locate the `prediction
 ## References
 
 [1] Varga, Leon Amadeus, et al. "SeaDronesSee: A Maritime Benchmark for Detecting Humans in Open Water." *Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision*, 2022. 
+
+[2] Kiefer, Benjamin, et al. "1st workshop on maritime computer vision (macvi) 2023: Challenge results." *Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision*. 2023.
