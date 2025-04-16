@@ -16,20 +16,32 @@ The SeaDronesSee v1 and v2 datasets , essential for maritime search and rescue o
 
 The code has been tested using Python 3.8.
 
-To execute the rebalancing process, run the `greedy_resplit.py` script located in the `greedy_resplit` folder of this repository using the following command in your terminal
+To execute the rebalancing process, run the `greedy_resplit.py` script located in the `greedy_resplit` folder of this repository.
+
+This script requires a dataset version argument—either `sdsv1` or `sdsv2`—which specifies whether to perform rebalancing on the SeaDronesSee v1 or v2 annotation files.
+
+Use the following command in your terminal:
 
 ```bash
-python greedy_resplit.py
+python greedy_resplit.py --dataset sdsv1
 ```
+
+or
+
+```bash
+python greedy_resplit.py --dataset sdsv2
+```
+
+
 
 **Input Files**
 
 This script requires the original SeaDronesSee dataset annotation files as inputs:
 
-- `./instances_train.json` – Original training set annotations from the SeaDronesSee dataset.
-- `./instances_val.json` – Original validation set annotations from the SeaDronesSee dataset.
+- `./instances_train.json` – Original training set annotations from the SeaDronesSee v1 or v2 dataset.
+- `./instances_val.json` – Original validation set annotations from the SeaDronesSee v1 or v2 dataset.
 
-Ensure these files are downloaded and placed in the correct directory before running the script. You can obtain them from the [dataset link](https://cloud.cs.uni-tuebingen.de/index.php/s/aJQPHLGnke68M52).
+Ensure these files are downloaded and placed in the correct directory before running the script. You can obtain them from the official [SeaDronesSee v1](https://cloud.cs.uni-tuebingen.de/index.php/s/aJQPHLGnke68M52) or [SeaDronesSee v2](https://cloud.cs.uni-tuebingen.de/index.php/s/ZZxX65FGnQ8zjBP) dataset link.
 
 **Output Files**
 
@@ -37,6 +49,8 @@ After running the script, you will find the rebalanced annotation files in the s
 
 - `./instances_train_balanced.json` – Rebalanced training set annotations.
 - `./instances_val_balanced.json` – Rebalanced validation set annotations.
+
+
 
 ## 4. Model Validation
 
