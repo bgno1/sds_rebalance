@@ -115,7 +115,7 @@ elif args.dataset == 'sdsv2':
     categories_priority = [4, 1, 5, 3, 2]  # life saving appliances > swimmer > buoy > jetski > boat
     # Define the number of iterations for each category
     category_loops = {
-        1: 6,  # swimmer
+        1: 5,  # swimmer
         2: 4,  # boat
         3: 4,  # jetski
         4: 6,  # life_saving_appliances
