@@ -230,11 +230,11 @@ python ./tools/test.py ./frx.py ./work_dirs/frx/epoch_12.pth --out ./test.pkl
 
 - Validate the model’s generalization performance by submitting the JSON file to the SeaDronesSee Leaderboard server at [SeaDronesSee Leaderboard](https://macvi.org/leaderboard/airborne/seadronessee/object-detection).
 
-### 4.3 YOLOv8
+### 4.3 YOLOv8 and YOLO11
 
 #### 4.3.1 Training
 
-Download the YOLOv8 project from the [official Ultralytics GitHub repository](https://github.com/ultralytics/ultralytics), the following directory structure will be available:
+Download the YOLO project from the [official Ultralytics GitHub repository](https://github.com/ultralytics/ultralytics), the following directory structure will be available:
 
 ```md
 - ultralytics
